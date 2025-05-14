@@ -20,4 +20,9 @@ export class View {
     clearTextBox() {
         this.textBox.value = "";
     }
+    resetExerciseListColor() {
+        document.querySelectorAll("li").forEach(element => {
+            element.style.backgroundColor = "rgb(182, 182, 182)";
+        });
+    }
 }

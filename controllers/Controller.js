@@ -6,20 +6,29 @@ export class Controller {
         this.timer = new Timer();
         this.workoutList = new WorkoutList();
         this.view = new View();
+        this.selectedExercise;
     }
     initialize() {
         document.getElementById("start").addEventListener("click", () => {
             this.startWorkout();
         });
         document.getElementById("add").addEventListener("click", () => {
-            this.workoutList.addExercise({ exercise: this.view.textBox.value });
+            this.workoutList.addExercise({ index: this.selectedExercise, exercise: this.view.textBox.value });
             this.view.clearTextBox();
             this.workoutList.showList();
+            this.selectedExercise = undefined;
         });
         document.getElementById("remove").addEventListener("click", () => {
-            this.workoutList.removeExercise();
-            this.workoutList.showList();
+            this.workoutList.removeExercise(this.selectedExercise);
+            this.selectedExercise = undefined;
         });
+        document.querySelector("ol").addEventListener("pointerdown", this.handleExerciseClick.bind(this));
+    }
+    handleExerciseClick(event) {
+        this.view.resetExerciseListColor();
+        const target = event.target;
+        target.style.backgroundColor = "blue";
+        this.selectedExercise = Array.from(document.querySelector("ol").children).indexOf(target);
     }
     startWorkout() {
         this.view.hideInputs();

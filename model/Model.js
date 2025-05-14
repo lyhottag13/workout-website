@@ -17,7 +17,11 @@ export class WorkoutList {
         this.div.innerHTML = "";
     };
     removeExercise(index = this.exerciseList.length - 1) {
+        if (this.exerciseList.length === 0) {
+            return;
+        }
         this.exerciseList.splice(index, 1);
+        document.querySelectorAll("li")[index].remove();
     };
     addExercise({ index = this.exerciseList.length, exercise }) {
         if (exercise.length === 0) {
