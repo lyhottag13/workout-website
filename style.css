@@ -1,0 +1,20 @@
+#announcement-text {
+    font-size: 80px;
+}
+
+#timer-text {
+    color: rgb(121, 121, 255);
+    font-size: 80px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#timer {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+}
