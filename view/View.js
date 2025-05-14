@@ -1,6 +1,6 @@
 export class View {
     constructor() {
-        this.textBox = document.getElementById("text-box");
+        this.textBox = document.getElementById("exercise-box");
         this.timer = document.getElementById("timer-text");
         this.announcement = document.getElementById("announcement-text");
     }

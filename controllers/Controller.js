@@ -23,6 +23,7 @@ export class Controller {
     }
     startWorkout() {
         this.view.hideInputs();
+        this.timer.setMaxTime(document.getElementById("time-box").value);
         this.runTimer(0);
     }
     runTimer(currentExercise) {

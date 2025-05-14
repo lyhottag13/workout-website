@@ -4,6 +4,9 @@ export class Timer {
         this.time = this.maxTime;
         this.timer = document.getElementById("timer-text");
     }
+    setMaxTime(maxTime) {
+        this.maxTime = maxTime;
+    }
 }
 export class WorkoutList {
     constructor() {
@@ -17,6 +20,10 @@ export class WorkoutList {
         this.exerciseList.splice(index, 1);
     };
     addExercise({ index = this.exerciseList.length, exercise }) {
+        if (exercise.length === 0) {
+            alert("Enter a valid name!");
+            return;
+        }
         this.exerciseList.splice(index, 0, exercise);
     };
     showList() {
